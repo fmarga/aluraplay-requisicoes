@@ -19,6 +19,10 @@ async function criaVideo(titulo, descricao, url, imagem) {
     }),
   });
 
+  if (!conn.ok) {
+    throw new Error("Não foi possível enviar o vídeo");
+  }
+
   const connConvertida = conn.json();
   return connConvertida;
 }
